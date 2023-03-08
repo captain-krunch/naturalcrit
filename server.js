@@ -30,7 +30,7 @@ app.use(require('./server/account.api.js'));
 
 //Homebrew Reidrect
 app.all('/homebrew*', (req, res) => {
-	return res.redirect(302, 'http://homebrewery.naturalcrit.com' + req.url.replace('/homebrew', ''));
+	return res.redirect(302, 'http://homebrewery.onrender.com' + req.url.replace('/homebrew', ''));
 });
 
 
