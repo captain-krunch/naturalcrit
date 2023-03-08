@@ -21,7 +21,7 @@ const config = require('nconf')
 //DB
 require('mongoose')
 	.connect(process.env.MONGODB_URI || process.env.MONGOLAB_URI || 'mongodb://localhost/naturalcrit')
-	.connection.on('error', () => { process.env.MONGODB_URI && process.env.MONGOLAB_URI && console.log(">>>ERROR: Run Mongodb.exe ya goof!") });
+	.connection.on('error', () => { !process.env.MONGODB_URI && !process.env.MONGOLAB_URI ? console.log(">>>ERROR: Run Mongodb.exe ya goof!") : console.log(">>>ERROR: mongodb connection issue!")  });
 
 
 //Load in account api Routes
